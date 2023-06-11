@@ -4,7 +4,9 @@
   "description": "Teste para vaga de desenvolvedor Full-stack SCF Brazil",
   "main": "index.js",
   "scripts": {
-    "dev": "node app.js"
+    "start:dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build"
   },
   "author": "",
   "license": "ISC",
