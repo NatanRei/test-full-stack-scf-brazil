@@ -1,3 +1,44 @@
+# Desafio: reestruturação do código
+
+## Para iniciar o projeto é muito simples...
+
+```bash
+    git clone https://github.com/NatanRei/test-full-stack-scf-brazil.git
+```
+
+após...
+
+```bash
+    cd test-full-stack-scf-brazil
+    cp .env.example .env
+    npm install
+```
+
+... e para execultar o servidor basta rodar: 
+
+```bash
+    npm run dev
+```
+
+## Execulção do desafio:
+
+### Implementação de Typescript
+
+- Já no caminho do typescript, vamos trocar o express pelo fastify,
+por ter uma integração melhor com typescript e velocidade muito superior
+
+### Vamos iniciar remodelando a estrutura de pastas e arquivos
+
+- Criação de /src, e migração de arquivos para ele
+- Criação de /src/http, para concentrar rotas e controllers
+- Migração de testes[1-4].js para o controller de User
+
+### Refatoração
+
+- Coreção e ajustes finos no User Controller
+
+...
+
 # Este é um teste para desenvolvedores
 
 # possui 5 testes
