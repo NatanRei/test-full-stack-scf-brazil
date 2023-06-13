@@ -1,4 +1,3 @@
-import { ResourceNotFoundError } from './../../../use-cases/errors/resource-not-found-error';
 import { User, UserCreateInput } from "../../../@types/user";
 import { UsersRepository } from "../users-repository";
 import { randomUUID } from "node:crypto";
