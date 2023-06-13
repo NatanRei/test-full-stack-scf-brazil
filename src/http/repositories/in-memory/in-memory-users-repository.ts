@@ -9,7 +9,7 @@ export class InMemoryUsersRepository implements UsersRepository {
         return this.items;
     }
 
-    async findById(id: string): Promise<User | null> {
+    async findById(id: string) {
         const user = this.items.find(item => item.id === id);
 
         if(!user) {
@@ -18,7 +18,7 @@ export class InMemoryUsersRepository implements UsersRepository {
         return user
     }
 
-    async create(data: UserCreateInput): Promise<User> {
+    async create(data: UserCreateInput) {
         const user = {
             id: randomUUID().toString(),
             name: data.name,
@@ -30,7 +30,7 @@ export class InMemoryUsersRepository implements UsersRepository {
         return user
     }
 
-    async update(user: User): Promise<User> {
+    async update(user: User) {
         const userIndex = this.items.findIndex(item => item.id === user.id)
 
         if (userIndex >= 0) {
@@ -40,7 +40,7 @@ export class InMemoryUsersRepository implements UsersRepository {
         return user
     }
 
-    async delete(user: User): Promise<User> {
+    async delete(user: User) {
         const userIndex = this.items.findIndex(item => item.id === user.id)
 
         if (userIndex >= 0) {
