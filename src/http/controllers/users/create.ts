@@ -6,15 +6,17 @@ export async function create( request: FastifyRequest, reply: FastifyReply ) {
 
     const createUserBodySchema = z.object({
         name: z.string(),
-        job: z.string()
+        job: z.string(),
+        password: z.string().min(6),
     })
 
-    const { name, job } = createUserBodySchema.parse(request.body)
+    const { name, job, password } = createUserBodySchema.parse(request.body)
     
         const userUseCase = makeCreateUserUseCase()
         await userUseCase.execute({
             name,
-            job
+            job,
+            password
         })
 
     return reply.status(201).send()

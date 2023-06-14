@@ -1,4 +1,4 @@
-import { User } from "../@types/user"
+import { User } from "@prisma/client"
 import { UsersRepository } from "../http/repositories/users-repository"
 import { FailedToDeleteError } from "./errors/failed-to-delete"
 import { ResourceNotFoundError } from "./errors/resource-not-found-error"

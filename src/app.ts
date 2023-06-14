@@ -18,5 +18,6 @@ app.setErrorHandler((error, _, reply) => {
         console.error(error)
     }
 
-    return reply.status(500).send({ message: 'Internal server error.'})
+    const error_message = error.message ?? 'Internal server error.'
+    return reply.status(500).send({ message: error_message})
 })

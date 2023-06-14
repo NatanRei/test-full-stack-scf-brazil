@@ -1,7 +1,12 @@
-import { User, UserCreateInput } from "../@types/user"
+import { hash } from "bcryptjs"
 import { UsersRepository } from "../http/repositories/users-repository"
+import { Role, User } from "@prisma/client"
 
-interface CreateUserUseCaseRequest extends UserCreateInput {}
+interface CreateUserUseCaseRequest {
+    name: string,
+    job: string,
+    password: string,
+}
 
 interface CreateUserUseCaseResponse {
     user: User
@@ -12,12 +17,18 @@ export class CreateUserUseCase {
 
     async execute({ 
         name,
-        job
+        job,
+        password
 
      }: CreateUserUseCaseRequest): Promise<CreateUserUseCaseResponse> {
+
+        const password_hash = await hash(password, 6)
+
         const user = await this.usersRepository.create({
             name,
-            job
+            job,
+            password_hash,
+            role: Role.COMMON
         })
 
         return {

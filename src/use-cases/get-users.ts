@@ -1,4 +1,4 @@
-import { User } from "../@types/user"
+import { User } from "@prisma/client"
 import { UsersRepository } from "../http/repositories/users-repository"
 
 

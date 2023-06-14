@@ -1,5 +1,5 @@
 
-import { makeCountUserReadedTimesUseCase } from '@/use-cases/factories/make-count-user-readed-times'
+import { makeCountUserReadedTimesUseCase } from '@/use-cases/factories/make-count-user-readed-times-use-case'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 
@@ -14,5 +14,5 @@ export async function countReadedTimes( request: FastifyRequest, reply: FastifyR
     const countReadedTimesUseCase = makeCountUserReadedTimesUseCase()
     const { userReadedTimes } = await countReadedTimesUseCase.execute({id})
 
-    return reply.status(200).send(userReadedTimes)
+    return reply.status(200).send({userReadedTimes})
 }

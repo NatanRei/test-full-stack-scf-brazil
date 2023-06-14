@@ -16,11 +16,15 @@ export async function update( request: FastifyRequest, reply: FastifyReply ) {
     const { name, job } = updateUserBodySchema.parse(request.body)
     
         const userUseCase = makeUpdateUserUseCase()
-        await userUseCase.execute({
+        const update = await userUseCase.execute({
             id,
             name,
             job
         })
+
+        if (!update) {
+            return reply.status(404).send('User not found.')
+        }
 
     return reply.status(204).send()
 }

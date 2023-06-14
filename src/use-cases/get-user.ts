@@ -1,6 +1,6 @@
 import { ResourceNotFoundError } from './errors/resource-not-found-error';
-import { User, UserCreateInput } from "../@types/user"
 import { UsersRepository } from "../http/repositories/users-repository"
+import { User } from '@prisma/client';
 
 interface GetUserUseCaseRequest {
     id: string

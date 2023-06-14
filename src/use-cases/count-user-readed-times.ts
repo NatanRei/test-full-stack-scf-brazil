@@ -16,13 +16,13 @@ export class CountUserReadedTimesUseCase {
         id
      }: CountUserReadedTimesUseCaseRequest): Promise<CountUserReadedTimesUseCaseResponse> {
         const user = await this.usersRepository.findById(id)
-
+        
         if (!user) {
             throw new ResourceNotFoundError();
         }
 
         return {
-            userReadedTimes: Number(user.readTimes)
+            userReadedTimes: Number(user.readed_time)
         }
     }
 }

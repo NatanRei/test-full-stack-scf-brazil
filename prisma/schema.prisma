@@ -16,7 +16,7 @@ model User {
   id            String @id @default(uuid())
   name          String
   job           String
-  password_hash String
+  password_hash String 
   readed_time   Decimal @default(0)
   role          Role   @default(COMMON)
   created_at   DateTime  @default(now())
