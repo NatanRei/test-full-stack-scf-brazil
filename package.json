@@ -1,15 +1,31 @@
 {
-  "name": "testedev",
+  "name": "test-full-stack",
   "version": "1.0.0",
-  "description": "",
+  "description": "Teste para vaga de desenvolvedor Full-stack SCF Brazil",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cookie": "^8.3.0",
+    "@fastify/jwt": "^7.0.0",
+    "@prisma/client": "^4.15.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
-    "express": "^4.18.2"
+    "dotenv": "^16.1.4",
+    "fastify": "^4.18.0",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/node": "^20.3.0",
+    "prisma": "^4.15.0",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.3"
   }
 }
