@@ -5,6 +5,6 @@ export interface UsersRepository {
     getAll(): Promise<User[]>
     create(user: UserCreateInput): Promise<User>
     update(user: User): Promise<User>
-    delete(user: User): Promise<User>
+    delete(user: User): Promise<Boolean>
 
 }

@@ -1,5 +1,6 @@
 import { User } from "../@types/user"
 import { UsersRepository } from "../http/repositories/users-repository"
+import { FailedToDeleteError } from "./errors/failed-to-delete"
 import { ResourceNotFoundError } from "./errors/resource-not-found-error"
 
 interface DeleteUserUseCaseRequest {
@@ -15,16 +16,18 @@ export class DeleteUserUseCase {
 
     async execute({ 
         id
-
      }: DeleteUserUseCaseRequest): Promise<DeleteUserUseCaseResponse> {
-
         const user = await this.usersRepository.findById(id)
 
         if (!user) {
             throw new ResourceNotFoundError()
         }
 
-        await this.usersRepository.delete(user)
+        const userHasBeenDeleted = this.usersRepository.delete(user)
+
+        if (!userHasBeenDeleted) {
+            throw new FailedToDeleteError()
+        }
 
         return {
             user

@@ -1,9 +1,9 @@
 import { InMemoryUsersRepository } from "../../http/repositories/in-memory/in-memory-users-repository"
-import { CreateUserUseCase } from "../create-user"
+import { CountUserReadedTimesUseCase } from "../count-user-readed-times"
 
-export function makeCreateUserUseCase() {
+export function makeCountUserReadedTimesUseCase() {
     const usersRepository = new InMemoryUsersRepository()
-        const useCase = new CreateUserUseCase(usersRepository)
+    const useCase = new CountUserReadedTimesUseCase(usersRepository)
 
     return useCase
 }

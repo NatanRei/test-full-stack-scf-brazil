@@ -45,8 +45,8 @@ export class InMemoryUsersRepository implements UsersRepository {
 
         if (userIndex >= 0) {
             delete this.items[userIndex]
+            return true
         }
-
-        return user
+        return false
     }
 }

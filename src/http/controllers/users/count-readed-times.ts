@@ -1,4 +1,5 @@
-import { makeCountUserReadedTimesUseCase } from '@/use-cases/factories/make-create-user-use-case'
+
+import { makeCountUserReadedTimesUseCase } from '@/use-cases/factories/make-count-user-readed-times'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 
